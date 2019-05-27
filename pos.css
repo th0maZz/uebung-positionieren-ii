@@ -33,26 +33,69 @@ section{
 
 .row{
 	width: 100%;
+	height: 600px;
+	position: relative;
 
+	}
+
+.row:hover .ferrari-red {
+transform: rotateZ(-45deg);
 }
+
+.row:hover .electric-purple {
+  top: 400px;
+	transform: rotate(1080deg);
+}
+
+.row:hover .black {
+		border-radius:100%;
+}
+/*In Element muss ein Rahmen gesteckt sein, damit sich die inneren Elemente orientieren können */
 
 .col{
 	width: 200px;
 	height: 200px;
-}
+	position: absolute;
+	top: 0;
+	right: 0;
+	}
 
-.electric-purple{
-	background: #C200FB;
-}
 
+/*pos:absolute hebt Element auf der Z-Achse nach vorn. Löst die Abhängigkeit von anderen, übergeordneten Boxen auf */
+/*Elemente brauchen dann auch Höhe und Weite, damit sie sich auf der Z-Achse orientieren */
+/*z-index hängt von position absolute oder relative ab. ohne geht nicht */
 .raspberry{
 	background: #EC0868;
-}
+	z-index: 1000;
+	transition: 2s all ease;
+	}
 
 .ferrari-red{
 	background: #FC2F00;
+	z-index: 2;
+	transition: 1s all ease-out;
 }
+
 
 .black{
 	background: #000;
+	position: fixed;
+	transition: 1s all ease-in;
+}
+
+/*Anordnung im Html bestimmt Ebenen*/
+/*fixed: klebt am Bildschirm, bleibt auch beim Scrollen. Position fixed überschreibt andere Position-Befehle */
+/*sticky klebt erst ab einem bestimmten punkt, dann wird er fixed */
+
+.electric-purple{
+	background: #C200FB;
+	z-index: 1;
+	transition: 2s all ease;
+}
+
+.raspberry:hover {
+	background-color: green;
+	right: 100px;
+	top: 100px;
+
 }
